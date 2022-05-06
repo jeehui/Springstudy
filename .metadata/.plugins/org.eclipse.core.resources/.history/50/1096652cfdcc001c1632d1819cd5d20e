@@ -1,0 +1,12 @@
+package com.goodee.ex01.xml01;
+
+//Calculator 기능을 내장한 공학용 계산기
+public class EngineerCalculator {
+	
+	// field
+	private int a;
+	private int b;
+	private Calculator calculator;
+	
+	
+}

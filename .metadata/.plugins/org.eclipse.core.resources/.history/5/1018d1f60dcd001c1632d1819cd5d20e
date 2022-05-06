@@ -1,0 +1,10 @@
+package com.goodee.ex01.xml02;
+
+public class Car {
+	
+	//field
+	private String model; // xDrive 40d
+	private int price;    // 13140
+	private Engine engine;//
+	
+}	
