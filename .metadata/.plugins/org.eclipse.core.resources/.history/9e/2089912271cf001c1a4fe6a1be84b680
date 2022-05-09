@@ -1,0 +1,9 @@
+package com.goodee.ex01.java05;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SpringBeanConfig {
+	@Bean
+}

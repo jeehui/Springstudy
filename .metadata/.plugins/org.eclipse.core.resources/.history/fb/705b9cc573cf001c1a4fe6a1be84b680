@@ -1,0 +1,22 @@
+package com.goodee.ex01.java05;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class SpringMain {
+
+	public static void main(String[] args) {
+		
+		AbstractApplicationContext ctx = new GenericXmlApplicationContext("java/soldier_context.xml");
+		
+		Gun gun1 = ctx.getBean("gun1", Gun.class);
+		System.out.println("총기모델" + gun1.getModel());
+		System.out.println("총알수" + gun1.getBullet());
+		
+		
+		
+		
+		
+	}
+
+}
