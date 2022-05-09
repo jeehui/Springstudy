@@ -1,0 +1,68 @@
+package com.goodee.ex01.xml06;
+
+public class BMICalculator {
+
+	// field
+	private Calculator calculator;
+	private double height; //키(cm 단위)
+	private double weight; //몸무게(kg 단위)
+	private double bmi;	   //BMI : 몸무게(kg) / 키(cm) * 키(cm)
+	private String health; //건강상태 
+	// 		 BMI < 20 : 저체중
+	// 20 <= BMI < 25 : 정상체중
+	// 25 <= BMI < 30 : 과제충
+	// 30 <= BMI	  : 비만
+	
+	//method
+	
+	public void add() {
+		calculator.add(weight, height);
+	}
+	public void sub() {
+		calculator.sub(weight, height);
+	}
+	public void mul() {
+		calculator.mul(weight, height);
+	}
+	public void div() {
+		calculator.div(weight, height);
+	}
+	public void mod() {
+		calculator.mod(weight, height);
+	}
+	
+	//getter, setter
+	public Calculator getCalculator() {
+		return calculator;
+	}
+	public void setCalculator(Calculator calculator) {
+		this.calculator = calculator;
+	}
+	public double getHeight() {
+		return height;
+	}
+	public void setHeight(double height) {
+		this.height = height;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+	public double getBmi() {
+		return bmi;
+	}
+	public void setBmi(double bmi) {
+		this.bmi = bmi;
+	}
+	public String getHealth() {
+		return health;
+	}
+	public void setHealth(String health) {
+		this.health = health;
+	}
+	
+	
+	
+}
