@@ -1,0 +1,9 @@
+package com.goodee.ex01.xml05;
+
+public class SpringMain {
+
+	public static void main(String[] args) {
+
+	}
+
+}

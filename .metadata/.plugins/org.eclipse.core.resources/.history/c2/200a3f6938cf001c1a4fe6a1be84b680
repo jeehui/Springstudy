@@ -1,0 +1,14 @@
+package com.goodee.ex01.xml05;
+
+import java.util.List;
+
+public class Exam {
+	
+	//field
+	private List<Integer> scores; //5개의 랜덤 정수
+	private double average; //평균
+	private char grade; //학점(A~F)
+	
+	
+	
+}	

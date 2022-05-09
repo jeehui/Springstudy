@@ -1,0 +1,12 @@
+package com.goodee.ex01.xml05;
+
+import java.util.Map;
+
+public class Student {
+	
+	//field
+	private String name;
+	private Exam exam;
+	private Map<String, String> pInfo; //address, phone
+	
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.goodee.ex01.xml01.EngineerCalculator"/>
+    <fullyQualifiedTypeName name="com.goodee.ex01.xml01.Calculator"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="java.lang.AbstractMethodError"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.GenericApplicationContext"/>
+    <fullyQualifiedTypeName name="com.goodee.ex01.xml03.MyConnection"/>
+    <fullyQualifiedTypeName name="java.sql.Connection"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+</qualifiedTypeNameHistroy>

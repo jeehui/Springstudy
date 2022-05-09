@@ -1,0 +1,39 @@
+package com.goodee.ex01.xml05;
+
+import java.util.Map;
+
+public class Student {
+	
+	//field
+	private String name;
+	private Exam exam;
+	private Map<String, String> pInfo; //address, phone
+	
+	//getter, setter
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Exam getExam() {
+		return exam;
+	}
+	public void setExam(Exam exam) {
+		this.exam = exam;
+	}
+	public Map<String, String> getpInfo() {
+		return pInfo;
+	}
+	public void setpInfo(Map<String, String> pInfo) {
+		this.pInfo = pInfo;
+	}
+	
+	//pInfo 메소드
+	public void pInfo() {
+		for(Map.Entry<String, String> entry : pInfo.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());;
+		}
+	}
+	
+}
