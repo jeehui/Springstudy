@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Publisher -->
+	<bean class="com.goodee.ex01.java04.Publisher" id="publisher1">
+		<property name="name" value="한국출판사"/>
+		<property name="tel" value="02-1111-2222"/>
+	</bean>
+	
+	<!-- book -->
+	<bean class="com.goodee.ex01.java04.Book" id="book1">
+		<property name="title" value="어린왕자"/>
+		<property name="author" value="생택쥐페리"/>
+		<property name="publisher" ref="publisher1"/>
+	</bean>
+
+</beans>
