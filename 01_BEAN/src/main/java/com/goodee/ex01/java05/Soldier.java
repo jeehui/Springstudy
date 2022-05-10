@@ -32,7 +32,9 @@ public class Soldier {
 		System.out.println("이름 : " + name);
 		System.out.println("총기모델 : " + gun.getModel());
 		System.out.println("총알수 : " + gun.getBullet());
-		System.out.println("부대명 : " + getArmy());
+		System.out.println("부대명 : " + army.get("name"));
+		System.out.println("부대위치 : " + army.get("location"));
+		
 	}
 	
 }

@@ -1,3 +1,7 @@
 INDEX VERSION 1.131
+C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3926795223.index
+\02_MVC_STATIC\src\main\java
 C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\516055706.index
 \01_BEAN\src\main\java
+C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\386890926.index
+\02_MVC_STATIC\src\main\java

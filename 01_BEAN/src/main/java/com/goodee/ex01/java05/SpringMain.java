@@ -9,7 +9,15 @@ public class SpringMain {
 		
 		AbstractApplicationContext ctx = new GenericXmlApplicationContext("java/soldier_context.xml");
 		
+		Soldier s1 = ctx.getBean("soldier1", Soldier.class);
+		s1.info();
 		
+		System.out.println();
+		
+		Soldier s2 = ctx.getBean("soldier2", Soldier.class);
+		s2.info();
+		
+		ctx.close();
 		
 		
 	}
