@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="org.springframework.context.support.GenericApplicationContext"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.xml04.CollectionClass"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.xml05.Exam"/>
-    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.xml06.GymMember"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.xml06.Calculator"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.xml06.BMICalculator"/>
@@ -28,17 +27,25 @@
     <fullyQualifiedTypeName name="com.goodee.ex01.java02.SpringBeanConfig"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.java02.Student"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.java03.Calculator"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.java03.AppContext"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.java03.Gugudan"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.java04.Publisher"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.java04.Book"/>
-    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
     <fullyQualifiedTypeName name="com.goodee.ex01.java05.Gun"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="com.goodee.ex01.java05.Soldier"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="com.goodee.ex01.java06.BankAccount"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
-    <fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
-    <fullyQualifiedTypeName name="com.goodee.ex01.java05.Soldier"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.AnnotationConfigApplicationContext"/>
+    <fullyQualifiedTypeName name="com.goodee.ex01.java06.SpringBeanConfig"/>
+    <fullyQualifiedTypeName name="com.goodee.ex01.java06.Customer"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.ImportResource"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
 </qualifiedTypeNameHistroy>
