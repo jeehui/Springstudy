@@ -53,7 +53,34 @@ public class Controller2 {
 		mav.addObject("board", board); //Model에 속성 board를 저장합니다.
 		mav.setViewName("add"); 	   //add.jsp
 		
-			return mav;	0			//forward 하기 때문에 add.jsp로 board를 전달한 상황입니다.
+			return mav;				//forward 하기 때문에 add.jsp로 board를 전달한 상황입니다.
+		
+	}
+	
+	@GetMapping("/add2") //<a href="${contextPath}/add2?title=공지사항1&hit=10">
+	public ModelAndView add2(String title, Long hit) { // @RequestParam 애너테이션을 생략할 수 있어요.
+		
+		Board board = Board.builder()
+				.title(title)
+				.hit(hit)
+				.build();
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("board", board);
+		mav.setViewName("add");
+		
+		return mav;
+		
+	}
+	
+	@GetMapping("/add3")
+	public ModelAndView add3(Board board) { //Board 클래스의 setTitle, setHit가 동작하면서
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("board", board);
+		mav.setViewName("add");
+		
+		return mav;
 		
 	}
 	

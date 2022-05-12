@@ -20,7 +20,7 @@ public class Controller1 {
 	}
 	
 	@GetMapping("/detail1") // <a href="${contextPath}/detail1?name=민경태&age=45"
-	public String detail(HttpServletRequest request) {
+	public String detail1(HttpServletRequest request) {
 		
 		String name = request.getParameter("name");
 		int age = Integer.parseInt(request.getParameter("age"));
