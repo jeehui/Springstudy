@@ -1,0 +1,27 @@
+코드의 문제가 아닌경우가 있는데 그 경우는 jar같은 프로그램이 문제가 생기는 경우도 있다.
+그런 경우는 jar가 있는 C드라이브->사용자->GDJ45->.m2->repository 경로로 repository를 없애면 된다.
+
+select 쓰는 애들은 spring에선model을 써야함. 포워드를 해야해서. list, detail 같은애들
+insert, update, delete는 리다이렉트
+
+model은 forward 할 데이터를 보낼때 씀.
+요청은 request, 보낼땐 model
+model은 request에 받은 요청을 저장하고 forward해줌
+
+
+JSP에서는 요청이든 응답이든 HttpServletRequest로 썼지만
+Spring에서는 다른 방법이 있다.
+
+HttpServletRequest로 쓰면 
+String name = request.getParameter("name");
+int age = Integer.parseInt(request.getParameter("age")); 이와같이 Parameter를 통해 꺼내야했지만
+
+parameter 받으려면 name속성으로.
+
+redirect는 jsp로 이동하는게 아니고 mapping으로 이동해서 주소창보면
+localhost9090/ex04/list -> 여기서 list는 mapping값임
+
+forward는 jsp로 이동하고, redirect는 mapping으로 이동함
+(list, detail service		add, remove, modify service)
+service 확인해보면 request.getPara~~데이터를 받고 forward는 jsp, redirect는 mapping으로 이동함.
+
