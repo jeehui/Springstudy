@@ -43,6 +43,11 @@ public class MemberController {
 		return "member"; //member.jsp
 	}
 	
+	@GetMapping("/board") //${contextPath}/board 요청이 오면,
+	public String board() {
+		return "board"; //board.jsp로 이동하자
+	} //아무곳이든 이동해도 상관 없음.
+	
 	// 컨트롤러의 메소드는 기본적으로 JSP이름을 반환한다.
 	
 	// Ajax는 JSP이름을 반환하는 것이 아니라
@@ -105,10 +110,5 @@ public class MemberController {
 				    //@ResponseBody : 내가 반환하는 건 JSP이름이 아니라 어떤 값이다.
 				    //produces = "application/json" : 내가 반환하는 건 JSON 데이터이다.
 	}
-	
-	@GetMapping("/board") //${contextPath}/board 요청이 오면,
-	public String board() {
-		return "board"; //board.jsp로 이동하자
-	} //아무나 이동해도 상관 없음.
 	
 }
