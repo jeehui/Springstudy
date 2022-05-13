@@ -1,10 +1,14 @@
 package com.goodee.ex05.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -67,11 +71,44 @@ public class MemberController {
 		
 		//Jackson이 하는 일 //JSONObject obj = new JSONObject(); 이거 안 만들게 해줌
 		//자바 객체 member를 자동으로{"id": 아이디, "pw": 비밀번호}로 만들어 줍니다.
+		//Jackson 공부 해두기!
 		
 		return member; 
 		//자바 객체를 member.jsp로 반환하는데, 이 때 jackson이 개입해서 member를 {"id": 아이디, "pw": 비밀번호};로 바꿤
 		//물론 JSON으로 바꿔서 보내라고 말을 해 줘야 되는데 그건 produces에서 처리합니다.			
 		//실제 return은  {"id": 아이디, "pw": 비밀번호}; 인 것이다.
 	}
+	
+	@GetMapping(value="/member/detail3",
+				produces = "application/json; charset=UTF-8")
+
+	//반환타입 Map은 jackson에 의해서 JSON 데이터로 자동 변환됩니다.
+	@ResponseBody
+	public Map<String, Object> detail3(MemberDTO member){ //MemberDTO의 setId와 SetPw가 파라미터 id와 pw를 받아줍니다.
+		Map<String, Object> res = memberService.detail3(member);
+		return res; //Map을 반환하고 있지만 produces에서 반환타입이 JSON이라고 했기 때문에,
+					//jackson이 개입해서 Map을 JSON 데이터로 바꿔 줍니다.
+	}
+	@PostMapping(value="/member/detail4",
+				produces="application/json; charset=UTF-8")
+	@ResponseBody
+	// JSON 데이터가 요청의 본문에 포함된 상태로 컨트롤러로 왔습니다.
+	// 컨트롤러는 이런 데이터를 파라미터(parameter)로 처리할 수 없습니다.
+	// 새로운 방법이 필요합니다.
+	// @RequestBody 애너테이션을 이용하면 요청의 본문에 포함된 JSON 데이터를 받을 수 있습니다.
+	// jackson을 사용하고 있기 때문에 
+	// 컨트롤러로 전달된 JSON 데이터는 MemberDTO 또는 Map으로 받으면 됩니다.
+	public MemberDTO detail4(@RequestBody Map<String, Object> map){
+		MemberDTO member = memberService.detail4(map);
+		
+		return member; //Map이 JSON으로 변환되서 반환되려면 
+				    //@ResponseBody : 내가 반환하는 건 JSP이름이 아니라 어떤 값이다.
+				    //produces = "application/json" : 내가 반환하는 건 JSON 데이터이다.
+	}
+	
+	@GetMapping("/board") //${contextPath}/board 요청이 오면,
+	public String board() {
+		return "board"; //board.jsp로 이동하자
+	} //아무나 이동해도 상관 없음.
 	
 }

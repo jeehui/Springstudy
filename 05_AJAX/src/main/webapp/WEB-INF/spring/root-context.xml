@@ -5,6 +5,6 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		<bean class="com.goodee.ex05.service.MemberServiceImpl" id="memberService"/>
-		
+		<bean class="com.goodee.ex05.service.BoardServiceImpl" id="boardService"/>
 		
 </beans>
