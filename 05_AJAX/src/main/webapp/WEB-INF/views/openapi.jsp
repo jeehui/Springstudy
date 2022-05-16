@@ -7,23 +7,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="resources/js/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js" integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script>
 
 	//
 	$(document).ready(function(){
 		
-	})
-	$(function(){
-		$( "#datepicker" ).datepicker();
+		$('#targetDt').datepicker({
+			showOn: 'both',
+			dateFormat: 'yymmdd' //실제 생성되는 날짜는 yyyymmdd
+		});
+		
+		$('#btnQuery').on('click', ()=>{
+			fnDailyBoxOffice();
+		})
 	})
 	
 	//함수
 	function fnDailyBoxOffice(){
 		$.ajax({
-			
+			url: '${contextPath}/dailyBoxOffice'
 		})
 	}
 	
