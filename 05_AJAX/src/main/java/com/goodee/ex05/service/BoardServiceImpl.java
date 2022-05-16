@@ -11,21 +11,16 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public BoardDTO detail1(HttpServletRequest request) {
-		BoardDTO board = new BoardDTO();
-		board.setTitle(request.getParameter("title"));
-		board.setHit(Long.parseLong(request.getParameter("hit").toString()));
-		
-		return board;
+		String title = request.getParameter("title");
+		Long hit = Long.parseLong(request.getParameter("hit"));
+		return new BoardDTO(title, hit);
+	
 	}
 
 	@Override
 	public BoardDTO detail2(String title, Long hit) {
 		
-		BoardDTO board = new BoardDTO();
-		board.setTitle(title);
-		board.setHit(hit);
-		
-		return board;
+		return new BoardDTO(title, hit);
 	}
 
 	@Override

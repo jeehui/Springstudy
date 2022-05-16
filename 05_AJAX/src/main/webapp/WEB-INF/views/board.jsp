@@ -77,7 +77,7 @@
 			url:'${contextPath}/board/detail4',
 			type:'post',
 			data: $('#f').serialize(),
-			
+			contentType: 'application/json',
 			dataType: 'json',
 			success: function(obj){
 				$('#result1').text(res);

@@ -1,8 +1,0 @@
-package com.goodee.ex01.java03;
-
-public class Gugudan {
-	//field
-	private Calculator calculator;
-	private int begin;
-	private int end;
-}

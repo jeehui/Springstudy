@@ -33,20 +33,6 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
-	@GetMapping("/")
-	public String index() {
-		return "index"; //index.jsp
-	}
-	
-	@GetMapping("/member")
-	public String member() {
-		return "member"; //member.jsp
-	}
-	
-	@GetMapping("/board") //${contextPath}/board 요청이 오면,
-	public String board() {
-		return "board"; //board.jsp로 이동하자
-	} //아무곳이든 이동해도 상관 없음.
 	
 	// 컨트롤러의 메소드는 기본적으로 JSP이름을 반환한다.
 	

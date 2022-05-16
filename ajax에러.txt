@@ -1,0 +1,5 @@
+error:function(jqXHR){
+	여기에 들어가는거 2개
+하나는 404같은 숫자인 경우 status쓰고
+하나는 responseText로 text보내기
+}

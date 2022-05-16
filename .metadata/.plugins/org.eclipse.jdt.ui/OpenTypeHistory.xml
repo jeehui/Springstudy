@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+    <typeInfo handle="=05_AJAX/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.goodee.ex05.service{ProductService.java[ProductService" modifiers="513" timestamp="1652669395302"/>
+    <typeInfo handle="=05_AJAX/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.goodee.ex05.service{ReservationService.java[ReservationService" modifiers="513" timestamp="1652676600232"/>
+    <typeInfo handle="=05_AJAX/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.goodee.ex05.service{OpenapiService.java[OpenapiService" modifiers="513" timestamp="1652686111480"/>
+</typeInfoHistroy>

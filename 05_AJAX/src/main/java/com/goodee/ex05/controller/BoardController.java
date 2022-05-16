@@ -38,7 +38,7 @@ public class BoardController {
 	//@ResponseBody @RestController를 사용하면 안 적어요.
 	public BoardDTO detail1(HttpServletRequest request) {
 		BoardDTO board = boardService.detail1(request);
-		return board;
+		return boardService.detail1(request);
 	}
 	
 	@GetMapping(value="/board/detail2",
@@ -47,7 +47,7 @@ public class BoardController {
 	public BoardDTO detail2(@RequestParam(value="title")String title,
 							@RequestParam(value="hit")Long hit) {
 		BoardDTO board = boardService.detail2(title, hit);
-		return board;
+		return boardService.detail2(title, hit);
 	}
 	
 	@PostMapping(value="/board/detail3",
@@ -55,7 +55,7 @@ public class BoardController {
 	//@ResponseBody //ajax용
 	public Map<String, Object> detail3(BoardDTO board){
 		Map<String, Object> map = boardService.detail3(board);
-		return map;
+		return boardService.detail3(board);
 	}
 	
 	@PostMapping(value="/board/detail4",
@@ -63,7 +63,7 @@ public class BoardController {
 	//@ResponseBody
 	public BoardDTO detail4(@RequestBody Map<String, Object> map) {
 		BoardDTO board = boardService.detail4(map);
-		return board;
+		return boardService.detail4(map);
 	}
 	
 	
