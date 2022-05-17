@@ -10,7 +10,7 @@ import com.goodee.ex05.service.OpenapiService;
 
 @Controller
 public class OpenapiController {
-	
+
 	@Autowired
 	private OpenapiService openApiService;
 	

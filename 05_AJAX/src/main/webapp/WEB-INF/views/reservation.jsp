@@ -56,8 +56,8 @@
 				.appendTo('#result');
 			},
 			error: function(jqXHR){
-				if(jqXHR.status == 500){	//HttpStatus.BAD_REQUEST == 400
-					alert('잘못된 요청입니다.');
+				if(jqXHR.status == 400){	//HttpStatus.BAD_REQUEST == 400
+					alert('예약번호는 숫자입니다.');
 				}
 				$('#result').empty();
 				$('#result').text(jqXHR.responseText);
@@ -66,6 +66,31 @@
 	}//fnAjax2
 	
 	function fnAjax3(){
+		//요청 JSON, 응답 ResponseEntity
+		//no=1 요청하면 no=1, name=예약자 반환 받기
+		$.ajax({
+			/*요청*/
+			url: '${contextPath}/reservation/detail3',
+			type: 'post',
+			data: JSON.stringify({'no': $('#no').val()}),
+			contentType: 'application/json',
+			/*응답*/
+			dataType: 'json', /*reservation을 받아서 reservation.no, name을 받음*/
+			success: function(reservation){
+				$('#result').empty();
+				$('<ul>')
+				.append($('<li>').text(reservation.no))
+				.append($('<li>').text(reservation.name))
+				.appendTo('#result');
+			},
+			error: function(jqXHR){
+				if(jqXHR.status == 500){	//HttpStatus.BAD_REQUEST == 400
+					alert('저장할 수 없는 데이터입니다.');
+				}
+				$('#result').empty();
+				$('#result').text(jqXHR.responseText);
+			}
+		})
 		
 	}//fnAjax3
 	
@@ -81,6 +106,17 @@
 	<hr>
 	
 	<div id="result"></div>
+	
+	<hr>
+	
+	<!-- 
+		<img> 태그는 절대 경로의 이미지를 표시하지 못한다.
+		절대 경로의 이미지는 ajax로 이미지를 읽어 들인다.
+		C:/eagle.jpg 이미지는 읽어 올것이다.
+	 	jQuery.ajax는 사용하지 않는다.
+	 	C:/eagle.jpg 이미지를 읽어 올 것이다.
+	 -->
+	 <img alt="eagle.jpg" src="${contextPath}/reservation/image">
 	
 </body>
 </html>
