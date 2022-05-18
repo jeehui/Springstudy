@@ -13,10 +13,14 @@ C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\31297
 \04_MVC_REQUEST\src\main\java
 C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4208859505.index
 \03_MVC_DI\src\main\java
+C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1559689022.index
+\BOARD\src\main\java
 C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1532033133.index
 \06_JDBC\src\main\java
 C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3184048394.index
 \06_DBCP\src\main\java
+C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2974379600.index
+\BOARD\src\main\java
 C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\516055706.index
 \01_BEAN\src\main\java
 C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\386890926.index

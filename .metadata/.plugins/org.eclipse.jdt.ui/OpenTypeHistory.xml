@@ -3,5 +3,5 @@
     <typeInfo handle="=05_AJAX/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.goodee.ex05.service{ProductService.java[ProductService" modifiers="513" timestamp="1652675189945"/>
     <typeInfo handle="=05_AJAX/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.goodee.ex05.service{ReservationService.java[ReservationService" modifiers="513" timestamp="1652749976509"/>
     <typeInfo handle="=05_AJAX/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.goodee.ex05.service{OpenapiService.java[OpenapiService" modifiers="513" timestamp="1652749218465"/>
-    <typeInfo handle="=06_DBCP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.goodee.ex06.service{BoardService.java[BoardService" modifiers="513" timestamp="1652768706573"/>
+    <typeInfo handle="=BOARD/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.goodee.test.service{BoardService.java[BoardService" modifiers="513" timestamp="1652860439051"/>
 </typeInfoHistroy>
