@@ -153,12 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\QUIZ01" path="/q01" reloadable="true" source="org.eclipse.jst.jee.server:QUIZ01">
-
-	<!-- Oracle DBCP -->
-	<Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver" maxIdle="2" maxTotal="20" maxWaitMillis="5000" name="jdbc/oracle" password="1111" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:xe" username="scott"/>
-
-</Context></Host>
+      <Context docBase="C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\GDJ45\springstudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\08_SPRING_JDBC" path="/ex08" reloadable="true" source="org.eclipse.jst.jee.server:08_SPRING_JDBC"/></Host>
     </Engine>
   </Service>
 </Server>
