@@ -7,5 +7,7 @@
 <aop-project name="04_MVC_REQUEST"/>
 <aop-project name="02_MVC_STATIC"/>
 <aop-project name="03_MVC_DI"/>
+<aop-project name="08_SPRING_JDBC"/>
 <aop-project name="BOARD"/>
+<aop-project name="QUIZ01"/>
 </aop-reference-model>

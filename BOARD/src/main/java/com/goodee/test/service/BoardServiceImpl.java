@@ -22,8 +22,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardDTO findBoardByNo(Long board_no) {
-		return boardRepository.selectBoardByNo(board_no);
+	public BoardDTO findBoardByNo(Long no) {
+		return boardRepository.selectBoardByNo(no);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class BoardServiceImpl implements BoardService {
 			if(res > 0) {
 				out.println("<script>");
 				out.println("alert('등록되었습니다.')");
-				out.println("location.href='" + request.getContextPath() + "/index");  // location 이동은 redirect와 같은 방식의 이동이다.
+				out.println("location.href='" + request.getContextPath() + "/board/list");  // location 이동은 redirect와 같은 방식의 이동이다.
 				out.println("</script>");
 				out.close();
 			} else {
@@ -59,7 +59,7 @@ public class BoardServiceImpl implements BoardService {
 			if(res > 0) {
 				out.println("<script>");
 				out.println("alert('수정되었습니다.')");
-				out.println("location.href='" + request.getContextPath() + "/index");  // location 이동은 redirect와 같은 방식의 이동이다.
+				out.println("location.href='" + request.getContextPath() + "/board/list");  // location 이동은 redirect와 같은 방식의 이동이다.
 				out.println("</script>");
 				out.close();
 			} else {

@@ -49,7 +49,7 @@ public class BoardRepository {
 		List<BoardDTO> boards = new ArrayList<>();
 		try {
 			con = dataSource.getConnection();
-			sql = "SELECT BOARD_NO, WRITER, TITLE, CONTENT, IP, HIT, CREATED, LASTMODIFIED FROM BOARD ORDER BY BOARD_NO";
+			sql = "SELECT NO, WRITER, TITLE, CONTENT, IP, HIT, CREATED, LASTMODIFIED FROM BOARD ORDER BY BOARD_NO";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -62,6 +62,7 @@ public class BoardRepository {
 						rs.getLong(6),
 						rs.getString(7),
 						rs.getString(8));
+						boards.add(board);
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -75,7 +76,7 @@ public class BoardRepository {
 		BoardDTO board = null;
 		try {
 			con = dataSource.getConnection();
-			sql = "SELECT BOARD_NO, WRITER, TITLE, CONTENT, IP, HIT, CREATED, LASTMODIFIED FROM BOARD WHERE BOARD_NO =?";
+			sql = "SELECT NO, WRITER, TITLE, CONTENT, IP, HIT, CREATED, LASTMODIFIED FROM BOARD WHERE BOARD_NO =?";
 			ps = con.prepareStatement(sql);
 			ps.setLong(1, board_no);
 			rs = ps.executeQuery();
@@ -103,11 +104,11 @@ public class BoardRepository {
 		int res = 0;
 		try {
 			con = dataSource.getConnection();
-			sql = "INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL, ?, ?, ?, HIT, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), TO_CHAR(SYSDATE, 'YYYY-MM-DD'))";
+			sql = "INSERT INTO BOARD VALUES(BOARD_SEQ.NEXTVAL, ?, ?, ?, IP, HIT, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), TO_CHAR(SYSDATE, 'YYYY-MM-DD'))";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, board.getTitle());
-			ps.setString(2, board.getContent());
-			ps.setString(3, board.getIp());
+			ps.setString(1, board.getWriter());
+			ps.setString(2, board.getTitle());
+			ps.setString(3, board.getContent());
 			res = ps.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -121,11 +122,11 @@ public class BoardRepository {
 		int res = 0;
 		try {
 			con = dataSource.getConnection();
-			sql = "UPDATE BOARD SET TITLE =?, CONTENT=? WHERE BOARD_NO =?";
+			sql = "UPDATE BOARD SET TITLE =?, CONTENT=? WHERE NO =?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, board.getTitle());
 			ps.setString(2, board.getContent());
-			ps.setLong(3, board.getBoard_no());
+			ps.setLong(3, board.getNo());
 			res = ps.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();

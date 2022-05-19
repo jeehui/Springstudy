@@ -9,32 +9,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="${contextPath}/board/add">새글작성</a>
-	
-	<h1>전체게시글 개</h1>
-	<table>
-		<thead>
-			<tr>
-				<td>게시글번호</td>			
-				<td>제목</td>			
-				<td>작성자</td>			
-				<td>조회수</td>			
-				<td>작성일자</td>			
-				<td>삭제</td>			
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${boards }" var="board">
-				<tr>
-					<td>${board.board_no}</td>
-					<td><a href="${contextPath}/board/detail?baord_no=${board.board_no}">${board.title}</a></td>
-					<td>${board.writer}</td>
-					<td>${board.hit}</td>
-					<td>${board.created}</td>
-					<td></td>				
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	<a href="${contextPath}/board/list">게시판 목록가기</a>
 </body>
 </html>

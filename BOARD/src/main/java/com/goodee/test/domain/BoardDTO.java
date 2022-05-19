@@ -12,7 +12,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class BoardDTO {
-	private Long board_no;
+	private Long no;
 	private String writer;
 	private String title;
 	private String content;

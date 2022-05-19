@@ -29,8 +29,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardDTO findBoardByNo(Long board_no) {
-		return boardRepository.selectBoardByNo(board_no);
+	public BoardDTO findBoardByNo(Long no) {
+		return boardRepository.selectBoardByNo(no);
 	}
 
 	@Override
