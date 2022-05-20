@@ -36,6 +36,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/GDJ45/installer/installer/jar/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/GDJ45/installer/apache-tomcat-9.0.62/apache-tomcat-9.0.62/lib/ojdbc6.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

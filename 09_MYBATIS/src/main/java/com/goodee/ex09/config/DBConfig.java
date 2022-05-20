@@ -15,21 +15,23 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-
 // mybatis/properties/db.properties 파일의 내용을 참조하겠습니다.
-@PropertySource(value={"mybatis/properties/db.properties"})
+@PropertySource(value={"classpath:mybatis/properties/db.properties"})
 
-//Transactionmanager를 사용하겠습니다.
+// TransactionManager를 사용하겠습니다.
 @EnableTransactionManagement
+
+
 @Configuration
 public class DBConfig {
-	
+
 	// mybatis/properties/db.properties 파일에 등록된 프로퍼티 값을 변수에 저장합니다.
 	// 프로퍼티들은 ${}로 처리합니다.
-	@Value(value="${hikariConfig.driverClassName}")private String driverClassName;
-	@Value(value="${hikariConfig.jdbcUrl}")private String jdbcUrl;
-	@Value(value="${hikariConfig.username}")private String username;
-	@Value(value="${hikariConfig.password}")private String password;
+	@Value(value="${hikariConfig.driverClassName}") private String driverClassName;
+	@Value(value="${hikariConfig.jdbcUrl}") private String jdbcUrl;
+	@Value(value="${hikariConfig.username}") private String username;
+	@Value(value="${hikariConfig.password}") private String password;
+	
 	
 	// HikariCP 환경 설정
 	@Bean
@@ -42,16 +44,17 @@ public class DBConfig {
 		return hikariConfig;
 	}
 	
-	//HikariCP DataSource
+	// HikariCP DataSource
 	@Bean(destroyMethod="close")
 	public HikariDataSource dataSource() {
 		return new HikariDataSource(hikariConfig());
 	}
 	
 	// SqlSessionFactory
-	public SqlSessionFactory sqlSessionFactory() throws Exception{
+	@Bean
+	public SqlSessionFactory sqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-		sqlSessionFactoryBean.setDataSource(dataSource()); //Hikari DataSource 전달
+		sqlSessionFactoryBean.setDataSource(dataSource());  // HikariCP DataSource 전달
 		sqlSessionFactoryBean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("mybatis/config/mybatis-config.xml"));
 		sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("mybatis/mapper/*.xml"));
 		return sqlSessionFactoryBean.getObject();
@@ -65,13 +68,11 @@ public class DBConfig {
 		return new SqlSessionTemplate(sqlSessionFactory());
 	}
 	
-	//트랜잭션 매니저
-	//트랜잭션 매니저의 동작을 위해서 DBConfig에 @EnableTransactionManagement 애너테이션을 추가해야 한다.
-	
+	// 트랜잭션 매니저
+	// 트랜잭션 매니저의 동작을 위해서 DBConfig에 @EnableTransactionManagement 애너테이션을 추가해야 한다.
 	@Bean
-	public TransactionManager transactionmanager() {
+	public TransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource());
 	}
-	
 	
 }
