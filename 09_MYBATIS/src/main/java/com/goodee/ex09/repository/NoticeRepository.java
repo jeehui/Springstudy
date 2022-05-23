@@ -20,5 +20,8 @@ public class NoticeRepository {
 		return sqlSessionTemplate.selectList("mybatis.mapper.notice.selectNoticeList");
 	}
 	
+	public int insertNotice(NoticeDTO notice) {
+		return sqlSessionTemplate.insert("mybatis.mapper.notice.insertNotice", notice);
+	}
 	
 }

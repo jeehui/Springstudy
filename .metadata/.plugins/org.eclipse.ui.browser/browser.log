@@ -14,3 +14,36 @@
 5월 13, 2022 17:38:29.292 [5164:6504:0513/173829.292:ERROR:device_event_log_impl.cc(214)] [17:38:29.285] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
 5월 13, 2022 17:40:11.130 [9452:1936:0513/174011.130:ERROR:device_event_log_impl.cc(214)] [17:40:11.133] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
 5월 13, 2022 17:41:06.878 [9452:8744:0513/174106.878:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+5월 23, 2022 08:20:14.597 NEW SESSION
+5월 23, 2022 08:20:14.597 [2856:5560:0523/082014.596:ERROR:device_event_log_impl.cc(214)] [08:20:14.597] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
+5월 23, 2022 08:21:10.220 [2856:9220:0523/082110.220:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 23, 2022 08:33:13.473 [4964:10144:0523/083313.473:ERROR:device_event_log_impl.cc(214)] [08:33:13.473] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
+5월 23, 2022 08:34:08.718 [4964:3260:0523/083408.717:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 23, 2022 10:57:37.18 [4964:10144:0523/105737.018:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:37.121 [4964:10144:0523/105737.121:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:37.243 [4964:10144:0523/105737.242:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:37.358 [4964:10144:0523/105737.358:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:37.475 [4964:10144:0523/105737.475:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:37.585 [4964:10144:0523/105737.585:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:37.723 [4964:10144:0523/105737.723:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:37.835 [4964:10144:0523/105737.834:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:37.967 [4964:10144:0523/105737.967:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:38.103 [4964:10144:0523/105738.103:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:38.229 [4964:10144:0523/105738.229:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:38.446 [4964:10144:0523/105738.446:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:38.558 [4964:10144:0523/105738.558:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:38.742 [4964:10144:0523/105738.741:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:38.976 [4964:10144:0523/105738.975:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:39.122 [4964:10144:0523/105739.121:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:39.252 [4964:10144:0523/105739.251:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:39.374 [4964:10144:0523/105739.373:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:39.591 [4964:10144:0523/105739.591:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:39.815 [4964:10144:0523/105739.814:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:42.216 [4964:10144:0523/105742.216:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:46.158 [4964:10144:0523/105746.157:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:47.151 [4964:10144:0523/105747.151:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:47.289 [4964:10144:0523/105747.289:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:47.853 [4964:10144:0523/105747.853:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:47.956 [4964:10144:0523/105747.956:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 10:57:47.981 [4964:10144:0523/105747.981:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s

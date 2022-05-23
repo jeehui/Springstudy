@@ -17,7 +17,11 @@
 </script>
 </head>
 <body>
-
+	
+	<a href="${contextPath}/notice/savePage">새 공지 작성</a>
+	
+	<hr>
+	
 	<table border="1">
 		<thead>
 			<tr>
