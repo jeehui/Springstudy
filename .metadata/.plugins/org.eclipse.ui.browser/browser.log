@@ -47,3 +47,4 @@
 5월 23, 2022 10:57:47.853 [4964:10144:0523/105747.853:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
 5월 23, 2022 10:57:47.956 [4964:10144:0523/105747.956:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
 5월 23, 2022 10:57:47.981 [4964:10144:0523/105747.981:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
+5월 23, 2022 13:34:08.729 [4964:3848:0523/133408.728:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater

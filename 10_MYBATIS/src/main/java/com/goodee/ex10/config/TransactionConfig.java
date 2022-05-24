@@ -45,7 +45,7 @@ public class TransactionConfig {
 	public Advisor advisor() {
 		
 		AspectJExpressionPointcut pointCut = new AspectJExpressionPointcut();
-		pointCut.setExpression("execution(* com.goodee.ex09.service.*Impl.*(..))");
+		pointCut.setExpression("execution(* com.goodee.ex10.service.*Impl.*(..))");
 		
 		return new DefaultPointcutAdvisor(pointCut, interceptor());
 		

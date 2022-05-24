@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 
+	중요! mapper namespace가 달라집니다.
+	notice.xml의 쿼리문을 호출할 NoticeMapper.java를 namespace로 작성합니다.
+-->
+
+<mapper namespace="com.goodee.ex12.mapper.EmployeeMapper">
+	
+	<!-- 전체 레코드 갯수 -->
+	<!-- id=Mapper 추상메소드 -->
+	<select id="selectEmployeeCount" resultType="int">
+		SELECT COUNT(*)
+		  FROM EMPLOYEES
+	</select>
+	
+	<!-- BEGIN~END 사이 목록 반환             mybatis-config에서 Employee가 com.goodee.ex12.Employee로 정해둠-->
+	<select id="selectEmployees" parameterType="Map" resultType="Employee">
+		SELECT A.RNK, A.EMPLOYEE_ID, A.FIRST_NAME, A.LAST_NAME, A.EMAIL, A.PHONE_NUMBER, A.HIRE_DATE, A.JOB_ID, A.SALARY, A.COMMISSION_PCT, A.MANAGER_ID, A.DEPARTMENT_ID
+  			FROM (SELECT RANK() OVER(ORDER BY HIRE_DATE DESC) AS RNK, EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID
+                    FROM EMPLOYEES) A
+ 		   WHERE A.RNK BETWEEN #{beginRecord} AND #{endRecord}
+	</select>
+	
+	
+</mapper>
