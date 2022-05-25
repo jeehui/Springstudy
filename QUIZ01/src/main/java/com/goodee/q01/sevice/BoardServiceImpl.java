@@ -28,6 +28,11 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
+	public void increseHit(Long no) {
+		boardRepository.updateHit(no);
+	}
+	
+	@Override
 	public int save(BoardDTO board) {
 		return boardRepository.insertBoard(board);
 	}
@@ -40,10 +45,6 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public int remove(Long no) {
 		return boardRepository.deleteBoard(no);
-	}
-	@Override
-	public void increseHit(Long no) {
-		boardRepository.updateHit(no);
 	}
 
 }

@@ -134,31 +134,26 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		/*  
 		    Map result는 jackson에 의해서 아래 JSON으로 변환된다.
-			result ={
-				"status": 200,				result.status
-				"list": [					result.list -> item
-				 {  
-				 	"employeeId" : null,	item["employeeId"] : null
-				 	"firstName"	 : "Alex",	item["firstName"]  : "Alex"
-				 	"lastName"   : null,	item["lastName"]   : null
-				 	  ...
-				},
-				{
-					"employeeId" : null,
-					"firstName"  : "Andrew",
-					"lastName"	 : null,
-					 ...
-				},
-				... ],
-			"column" : "firstName"			result.column
+			result = {
+				"status": 200,                          result.status
+				"list": [                               result.list -> item
+					{                                   
+						"employeeId": null,             item["employeeId"] : null
+						"firstName": "Alex",            item["firstName"]  : "Alex"
+						"lastName": null,               item["lastName"]   : null
+						...
+					},
+					{
+						"employeeId": null,
+						"firstName": "Andrew",
+						"lastName": null,
+						...
+					},
+					... ],
+				"column": "firstName"                   result.column
 			}
 		*/
 		
 	}
-	
-	
-	
-	
-
 
 }

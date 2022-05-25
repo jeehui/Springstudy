@@ -41,14 +41,12 @@ public class BoardController {
 	
 	@GetMapping("/board/detail")
 	public String detail(@RequestParam(value="no") Long no, Model model) {
-		boardService.incresHit(no); //조회수 증가
-		BoardDTO board = boardService.findBoardByNo(no); //쿼리문이 달라서 service를 두개로 나눔.
+		boardService.increseHit(no);  // 조회수 증가
+		BoardDTO board = boardService.findBoardByNo(no);  // 증가된 조회수로 가져올 수 있음
 		logger.info("detail(): " + board);
 		model.addAttribute("board", board);
 		return "board/detail";
 	}
-	
-	
 	
 	@GetMapping("/board/savePage")
 	public String savePage() {
@@ -57,7 +55,7 @@ public class BoardController {
 	
 	@PostMapping("/board/save")
 	public String save(BoardDTO board, HttpServletRequest request) {
-		board.setIp(request.getRemoteAddr()); //board에 넣기
+		board.setIp(request.getRemoteAddr());  // board에 IP 넣기
 		logger.info("save(): " + board);
 		boardService.save(board);
 		return "redirect:/board/list";

@@ -3,23 +3,17 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<!-- 
-	중요! mapper namespace가 달라집니다.
-	notice.xml의 쿼리문을 호출할 NoticeMapper.java를 namespace로 작성합니다.
--->
-
 <mapper namespace="com.goodee.ex12.mapper.EmployeeMapper">
-	
+
 	<!-- 전체 레코드 갯수 -->
-	<!-- id=Mapper 추상메소드 -->
 	<select id="selectEmployeeCount" resultType="int">
 		SELECT COUNT(*)
 		  FROM EMPLOYEES
 	</select>
 	
-	<!-- BEGIN~END 사이 목록 반환             mybatis-config에서 Employee가 com.goodee.ex12.Employee로 정해둠-->
+	<!-- BEGIN~END 사이 목록 반환 -->
 	<select id="selectEmployees" parameterType="Map" resultType="Employee">
-	SELECT A.*
+		SELECT A.*
 		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY E.HIRE_DATE DESC) AS RN, E.*, D.DEPARTMENT_NAME
 		          FROM DEPARTMENTS D RIGHT JOIN EMPLOYEES E
 		            ON D.DEPARTMENT_ID = E.DEPARTMENT_ID) A
@@ -30,29 +24,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectFindCount" parameterType="Map" resultType="Integer">
 		SELECT COUNT(*)
 		  FROM EMPLOYEES
-		  <where>
-					<choose>
-				 		<when test="column == 'EMPLOYEE_ID'">${column} = TRIM(#{query})</when>
-				 		<when test="column == 'FIRST_NAME'"> UPPER(${column} LIKE '%' || #{query}) || '%'</when>
-				 		<when test="column == 'HIRE_DATE'">${column} BETWEEN TO_DATE(#{begin}, 'YYYY-MM-DD') AND TO_DATE(#(end), 'YYYY-MM-DD')</when>
-				 		<when test="column == 'SALARY'">${column} BETWEEN #{end}</when>
-				 	</choose>
-				</where>) A
+		<where>
+			<choose>
+		 		<when test="column == 'EMPLOYEE_ID'">${column} = TRIM(#{query})</when>
+		 		<when test="column == 'FIRST_NAME'">UPPER(${column}) LIKE '%' || UPPER(#{query}) || '%'</when>
+		 		<when test="column == 'HIRE_DATE'">${column} BETWEEN TO_DATE(#{begin}, 'YYYY-MM-DD') AND TO_DATE(#{end}, 'YYYY-MM-DD')</when>
+		 		<when test="column == 'SALARY'">${column} BETWEEN #{begin} AND #{end}</when>
+		 	</choose>
+		</where>
 	</select>
-	
 	
 	<!-- 검색 -->
 	<select id="selectFindList" parameterType="Map" resultType="Employee">
-			SELECT A.*
+		SELECT A.*
 		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY E.HIRE_DATE DESC) AS RN, E.*, D.DEPARTMENT_NAME
 		          FROM DEPARTMENTS D RIGHT JOIN EMPLOYEES E
 		            ON D.DEPARTMENT_ID = E.DEPARTMENT_ID
 				<where>
 					<choose>
 				 		<when test="column == 'EMPLOYEE_ID'">${column} = TRIM(#{query})</when>
-				 		<when test="column == 'FIRST_NAME'">LOWER(${column} LIKE '%' || #{query}) || '%'</when>
-				 		<when test="column == 'HIRE_DATE'">${column} BETWEEN TO_DATE(#{begin}, 'YYYY-MM-DD') AND TO_DATE(#(end), 'YYYY-MM-DD')</when>
-				 		<when test="column == 'SALARY'">${column} BETWEEN #{end}</when>
+				 		<when test="column == 'FIRST_NAME'">LOWER(${column}) LIKE '%' || LOWER(#{query}) || '%'</when>
+				 		<when test="column == 'HIRE_DATE'">${column} BETWEEN TO_DATE(#{begin}, 'YYYY-MM-DD') AND TO_DATE(#{end}, 'YYYY-MM-DD')</when>
+		 				<when test="column == 'SALARY'">${column} BETWEEN #{begin} AND #{end}</when>
 				 	</choose>
 				</where>) A
          WHERE A.RN BETWEEN #{beginRecord} AND #{endRecord}
@@ -60,9 +53,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 자동완성 -->
 	<select id="autoComplete" parameterType="Map" resultType="Employee">
-		SELECT ${column}
+		SELECT DISTINCT ${column}
 		  FROM EMPLOYEES
 		 WHERE ${column} LIKE #{query} || '%'
 	</select>
 	
+	
+	
+	
+	
+	
+	
+	
+	
+
 </mapper>

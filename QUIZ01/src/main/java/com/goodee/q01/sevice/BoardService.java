@@ -8,7 +8,7 @@ public interface BoardService {
 	public List<BoardDTO> findBoards();
 	public Long getBoardCount();
 	public BoardDTO findBoardByNo(Long no);
-	public void incresHit(Long no);
+	public void increseHit(Long no);
 	public int save(BoardDTO board);
 	public int change(BoardDTO board);
 	public int remove(Long no);
