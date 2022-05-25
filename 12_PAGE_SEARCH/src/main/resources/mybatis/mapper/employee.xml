@@ -19,11 +19,50 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- BEGIN~END 사이 목록 반환             mybatis-config에서 Employee가 com.goodee.ex12.Employee로 정해둠-->
 	<select id="selectEmployees" parameterType="Map" resultType="Employee">
-		SELECT A.RNK, A.EMPLOYEE_ID, A.FIRST_NAME, A.LAST_NAME, A.EMAIL, A.PHONE_NUMBER, A.HIRE_DATE, A.JOB_ID, A.SALARY, A.COMMISSION_PCT, A.MANAGER_ID, A.DEPARTMENT_ID
-  			FROM (SELECT RANK() OVER(ORDER BY HIRE_DATE DESC) AS RNK, EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID
-                    FROM EMPLOYEES) A
- 		   WHERE A.RNK BETWEEN #{beginRecord} AND #{endRecord}
+	SELECT A.*
+		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY E.HIRE_DATE DESC) AS RN, E.*, D.DEPARTMENT_NAME
+		          FROM DEPARTMENTS D RIGHT JOIN EMPLOYEES E
+		            ON D.DEPARTMENT_ID = E.DEPARTMENT_ID) A
+         WHERE A.RN BETWEEN #{beginRecord} AND #{endRecord}
 	</select>
 	
+	<!-- 검색된 레코드 갯수 -->
+	<select id="selectFindCount" parameterType="Map" resultType="Integer">
+		SELECT COUNT(*)
+		  FROM EMPLOYEES
+		  <where>
+					<choose>
+				 		<when test="column == 'EMPLOYEE_ID'">${column} = TRIM(#{query})</when>
+				 		<when test="column == 'FIRST_NAME'"> UPPER(${column} LIKE '%' || #{query}) || '%'</when>
+				 		<when test="column == 'HIRE_DATE'">${column} BETWEEN TO_DATE(#{begin}, 'YYYY-MM-DD') AND TO_DATE(#(end), 'YYYY-MM-DD')</when>
+				 		<when test="column == 'SALARY'">${column} BETWEEN #{end}</when>
+				 	</choose>
+				</where>) A
+	</select>
+	
+	
+	<!-- 검색 -->
+	<select id="selectFindList" parameterType="Map" resultType="Employee">
+			SELECT A.*
+		  FROM (SELECT ROW_NUMBER() OVER(ORDER BY E.HIRE_DATE DESC) AS RN, E.*, D.DEPARTMENT_NAME
+		          FROM DEPARTMENTS D RIGHT JOIN EMPLOYEES E
+		            ON D.DEPARTMENT_ID = E.DEPARTMENT_ID
+				<where>
+					<choose>
+				 		<when test="column == 'EMPLOYEE_ID'">${column} = TRIM(#{query})</when>
+				 		<when test="column == 'FIRST_NAME'">LOWER(${column} LIKE '%' || #{query}) || '%'</when>
+				 		<when test="column == 'HIRE_DATE'">${column} BETWEEN TO_DATE(#{begin}, 'YYYY-MM-DD') AND TO_DATE(#(end), 'YYYY-MM-DD')</when>
+				 		<when test="column == 'SALARY'">${column} BETWEEN #{end}</when>
+				 	</choose>
+				</where>) A
+         WHERE A.RN BETWEEN #{beginRecord} AND #{endRecord}
+	</select>
+	
+	<!-- 자동완성 -->
+	<select id="autoComplete" parameterType="Map" resultType="Employee">
+		SELECT ${column}
+		  FROM EMPLOYEES
+		 WHERE ${column} LIKE #{query} || '%'
+	</select>
 	
 </mapper>

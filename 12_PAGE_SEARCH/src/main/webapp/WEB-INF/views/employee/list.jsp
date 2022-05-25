@@ -11,9 +11,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<table border="1">
-			
+		
 		<thead>
 			<tr>
 				<td>순번</td>
@@ -26,18 +26,18 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${employees}" var ="emp">
+			<c:forEach items="${employees}" var="emp" varStatus="vs">
 				<tr>
-					<td>순번</td>
+					<td>${beginNo - vs.index}</td>
 					<td>${emp.employeeId}</td>
 					<td>${emp.firstName}</td>
 					<td>${emp.hireDate}</td>
 					<td>${emp.salary}</td>
 					<td>${emp.departmentId}</td>
-					<td>부서이름</td>
+					<td>${emp.departmentName}</td>
 				</tr>
-			</c:forEach>		
-		</tbody>			
+			</c:forEach>
+		</tbody>
 		<tfoot>
 			<tr>
 				<td colspan="7">
@@ -46,6 +46,6 @@
 			</tr>
 		</tfoot>
 	</table>
-		
+	
 </body>
 </html>

@@ -48,3 +48,8 @@
 5월 23, 2022 10:57:47.956 [4964:10144:0523/105747.956:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
 5월 23, 2022 10:57:47.981 [4964:10144:0523/105747.981:ERROR:page_load_metrics_update_dispatcher.cc(107)] Invalid parse_blocked_on_script_execution_duration 0.244 s for parse duration 0.236 s
 5월 23, 2022 13:34:08.729 [4964:3848:0523/133408.728:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+5월 25, 2022 09:53:01.444 NEW SESSION
+5월 25, 2022 09:53:01.444 [6860:2620:0525/095301.428:ERROR:device_event_log_impl.cc(214)] [09:53:01.441] Bluetooth: bluetooth_adapter_winrt.cc:1075 Getting Default Adapter failed.
+5월 25, 2022 09:53:56.633 [6860:10132:0525/095356.633:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+5월 25, 2022 14:53:56.642 [6860:1124:0525/145356.642:ERROR:util.cc(126)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
