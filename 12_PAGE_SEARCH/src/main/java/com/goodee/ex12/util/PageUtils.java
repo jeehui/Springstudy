@@ -1,5 +1,10 @@
 package com.goodee.ex12.util;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter 
 public class PageUtils {
 
 	
@@ -142,63 +147,6 @@ public class PageUtils {
 		
 		return sb.toString();
 		
-	}
-
-
-	// Getter/Setter
-	public int getTotalRecord() {
-		return totalRecord;
-	}
-	public void setTotalRecord(int totalRecord) {
-		this.totalRecord = totalRecord;
-	}
-	public int getRecordPerPage() {
-		return recordPerPage;
-	}
-	public void setRecordPerPage(int recordPerPage) {
-		this.recordPerPage = recordPerPage;
-	}
-	public int getTotalPage() {
-		return totalPage;
-	}
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
-	}
-	public int getPage() {
-		return page;
-	}
-	public void setPage(int page) {
-		this.page = page;
-	}
-	public int getBeginRecord() {
-		return beginRecord;
-	}
-	public void setBeginRecord(int beginRecord) {
-		this.beginRecord = beginRecord;
-	}
-	public int getEndRecord() {
-		return endRecord;
-	}
-	public void setEndRecord(int endRecord) {
-		this.endRecord = endRecord;
-	}
-	public int getPagePerBlock() {
-		return pagePerBlock;
-	}
-	public void setPagePerBlock(int pagePerBlock) {
-		this.pagePerBlock = pagePerBlock;
-	}
-	public int getBeginPage() {
-		return beginPage;
-	}
-	public void setBeginPage(int beginPage) {
-		this.beginPage = beginPage;
-	}
-	public int getEndPage() {
-		return endPage;
-	}
-	public void setEndPage(int endPage) {
-		this.endPage = endPage;
 	}
 
 }
