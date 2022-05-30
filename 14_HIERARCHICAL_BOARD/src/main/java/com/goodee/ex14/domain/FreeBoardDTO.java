@@ -1,4 +1,4 @@
-package com.goode.ex14.domain;
+package com.goodee.ex14.domain;
 
 import java.sql.Date;
 
@@ -7,12 +7,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class FreeBoardDTO {
-	
+	private Long rowNum;
 	private Long freeBoardNo;
 	private String writer;
 	private String content;
@@ -23,5 +23,4 @@ public class FreeBoardDTO {
 	private Integer depth;
 	private Integer groupNo;
 	private Integer groupOrd;
-	
 }
