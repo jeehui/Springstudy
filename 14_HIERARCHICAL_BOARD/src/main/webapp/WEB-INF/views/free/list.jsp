@@ -10,31 +10,33 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style>
-	.reply_form{
-		display: none;
-	}
-</style>
 <script src="../resources/js/jquery-3.6.0.js"></script>
-<script type="text/javascript">
-	
+<script>
 	$(function(){
 	
 		$('.reply_link').on('click', function(){
-			$(this).parent().parent().next().toggleClass('reply_form');
+			$('.reply_form').addClass('blind');
+	    	$(this).parent().parent().next().removeClass('blind');
 		})
-		
+	
 	})
-	
-	
-	
 </script>
+<style>
+	.blind {
+		display: none;
+	}
+</style>
 </head>
 <body>
+
+	<h3>게시글 작성 화면</h3>
+	<form action="${contextPath}/freeBoard/saveFreeBoard" method="post">
+		<input type="text" name="writer" value="${member.id}"  readonly>
+		<input type="text" name="content" placeholder="내용">
+		<button>작성완료</button>
+	</form>
 	
 	
-	
-	<a href="">새글작성</a>
 	
 	<hr>
 	
@@ -42,7 +44,7 @@
 		<caption>${totalRecord}개 게시글</caption>
 		<thead>
 			<tr>
-				<td>번호</td>
+				<td>제목</td>
 				<td>작성자</td>
 				<td>내용</td>
 				<td>작성일</td>
@@ -59,7 +61,8 @@
 				<c:forEach var="fb" items="${freeBoards}">
 					<c:if test="${fb.state == -1}">
 						<tr>
-							<td colspan="5">삭제된 게시글입니다</td>
+							<td>${totalRecord - fb.rowNum + 1}</td>
+							<td colspan="4">삭제된 게시글입니다</td>
 						</tr>
 					</c:if>
 					<c:if test="${fb.state == 1}">
@@ -79,25 +82,43 @@
 									${fb.content}
 								</c:if>
 								<!-- 답글달기(if 있으면 1단 댓글만 허용, if 없으면 다단 댓글 허용) -->
-								<c:if test="${fb.depth eq 0}">
+								<%-- <c:if test="${fb.depth eq 0}"> --%>
 									<a class="reply_link">답글</a>								
-								</c:if>
+								<%-- </c:if> --%>
 							</td>
 							<td>${fb.created}</td>
-							<td>내가쓴건삭제버튼보여주기</td>
+							<td>
+								<c:if test="${member.id eq fb.writer}">
+									<a href="${contextPath}/freeBoard/remove?freeBoardNo=${fb.freeBoardNo}" onclick="fnRemove(this)">
+										<i class="fa-solid fa-trash-can"></i>		
+									</a>
+									<script>
+										function fnRemove(a){
+											$(a).on('click', function(event){
+												if(confirm('삭제할까요?') == false){
+													event.preventDefault(); // 전달된 <a> 태그의 이벤트 취소
+													return false;
+												}
+												return true; //전달된 <a> 태그의 이벤트 진행
+											})
+										}
+										
+									</script>
+								</c:if>
+							</td>
+							
 						</tr>
-						<!-- class 속성 값 reply_form을 가지고 있으면 안 보인다. -->
-						<tr class="reply_form">
+						<tr class="reply_form blind">
 							<td colspan="5">
 								<form action="${contextPath}/freeBoard/saveReply" method="post">
-									<input type="text" name="writer" placeholder="작성자" size="4">
+									<input type="text" name="writer" value="${member.id}" size="4" readonly>
 									<input type="text" name="content" placeholder="내용" size="40">
 									<!-- 원글의 Depth, GroupNo, GroupOrd -->
-									<input type="text" name="depth" value="${fb.depth}">
-									<input type="text" name="groupNo" value="${fb.groupNo}">
-									<input type="text" name="groupOrd" value="${fb.groupOrd}">
+									<input type="hidden" name="depth" value="${fb.depth}">
+									<input type="hidden" name="groupNo" value="${fb.groupNo}">
+									<input type="hidden" name="groupOrd" value="${fb.groupOrd}">
 									<button>답글달기</button>
-								</form>							
+								</form>
 							</td>
 						</tr>
 					</c:if>

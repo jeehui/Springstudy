@@ -8,9 +8,11 @@
 <aop-project name="11_MYBATIS"/>
 <aop-project name="08_SPRING_JDBC"/>
 <aop-project name="12_PAGE_SEARCH"/>
+<aop-project name="14_HIERARCHICAL_BOARD"/>
 <aop-project name="06_JDBC"/>
 <aop-project name="10_MYBATIS"/>
 <aop-project name="01_BEAN"/>
+<aop-project name="15_GALLERY"/>
 <aop-project name="MovieProject"/>
 <aop-project name="AppTest"/>
 <aop-project name="BOARD"/>

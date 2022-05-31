@@ -18,9 +18,8 @@ public class FreeBoardDTO {
 	private String content;
 	private String ip;
 	private Date created;
-	private Date modified;
 	private Integer state;
 	private Integer depth;
-	private Integer groupNo;
+	private Long groupNo;
 	private Integer groupOrd;
 }
