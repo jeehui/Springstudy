@@ -15,7 +15,7 @@ public class GalleryDTO {
 	
 	
 	private Long galleryNo;
-	private String gaWriter;
+	private String writer;
 	private String title;
 	private String content;
 	private String ip;
