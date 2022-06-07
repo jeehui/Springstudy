@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employee {
-	
+
 	private Integer employeeId;
 	private String firstName;
 	private String lastName;
@@ -21,7 +21,7 @@ public class Employee {
 	private Integer salary;
 	private Double commissionPct;
 	private Integer managerId;
-	private Integer departmentId;
-	private String departmentName;
+
+	private Department department;
 	
 }

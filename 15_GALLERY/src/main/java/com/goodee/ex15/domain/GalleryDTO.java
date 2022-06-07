@@ -12,8 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class GalleryDTO {
-	
-	
 	private Long galleryNo;
 	private String writer;
 	private String title;
@@ -22,7 +20,4 @@ public class GalleryDTO {
 	private Long hit;
 	private Date created;
 	private Date modified;
-	
-	
-	
 }
