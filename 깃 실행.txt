@@ -284,4 +284,9 @@ git init-> git add . -> git commit -m 'date'
 $ git remote add origin 주소 ##원격저장소 등록
 $ git pull origin main
 $ git pull origin main --allow-unrelated-histories ## 처음 pull 할 때 사용해야 하는 옵션(처음 repository쓸때사용)
+:wq(공백)
 $ git push origin main
+
+
+깃허브 토큰
+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
