@@ -287,6 +287,15 @@ $ git pull origin main --allow-unrelated-histories ## 처음 pull 할 때 사용
 :wq(공백)
 $ git push origin main
 
+git repository 삭제
+
+-git remote --help
+-git remote remove origin
+-git remote add origin 자기 repository 깃 주소
+-git push -f origin main
 
 깃허브 토큰
-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
+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
+
+캡처
+윈도우키 + shift + s

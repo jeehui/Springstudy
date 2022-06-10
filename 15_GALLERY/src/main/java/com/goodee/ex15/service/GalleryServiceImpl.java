@@ -11,6 +11,7 @@ import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -42,6 +43,12 @@ public class GalleryServiceImpl implements GalleryService {
 	// 갤러리 목록
 	@Override
 	public void findGalleries(HttpServletRequest request, Model model) {
+		
+		// 목록 보기로 왔으니, 조회수 증가가 가능하도록 session에 저장해 둔 updateHit를 제거함.
+		HttpSession session = request.getSession();
+		if(session.getAttribute("updateHit") != null) {
+			session.removeAttribute("updateHit");
+		}
 		
 		// page 파라미터
 		Optional<String> opt = Optional.ofNullable(request.getParameter("page"));
@@ -77,12 +84,25 @@ public class GalleryServiceImpl implements GalleryService {
 		// galleryNo
 		Long galleryNo = Long.parseLong(request.getParameter("galleryNo"));
 		
-		// 조회수 증가
-		String requestURI = request.getRequestURI();
-		if(requestURI.endsWith("detail")) {
-			galleryMapper.updateGalleryHit(galleryNo);
-		}
+		// 조회수 증가(수정페이지로 갈 때, 수정 후 상세보기로 돌아올 때, 상세보기에서 새로고침할 때 모두 조회수가 증가되는 문제가 발생)
+//		String requestURI = request.getRequestURI();
+//		if(requestURI.endsWith("detail")) {
+//			galleryMapper.updateGalleryHit(galleryNo);
+//		}
 		
+		// referer 이해하기
+		// 목록 보기에서 제목을 클릭하면, referer == http://localhost:9090/ex14/gallery/list
+		// 수정페이지 버튼을 클릭하면,    referer == http://localhost:9090/ex14/gallery/detail?galleryNo=1
+		// 수정완료 버튼을 클릭하면,      referer == http://localhost:9090/ex14/gallery/change
+		
+		// 조회수 증가
+		String referer = request.getHeader("referer");
+		HttpSession session = request.getSession();
+		if(referer.endsWith("list") && session.getAttribute("updateHit") == null) {  // 목록 보기에서 제목을 클릭했고, session에 updateHit 속성이 없다면
+			galleryMapper.updateGalleryHit(galleryNo);  // 조회수 증가
+			session.setAttribute("updateHit", "done");  // 조회수 증가를 했다는 의미로 session에 updateHit 속성을 저장해 둠. 목록 보기로 이동하면 조회가 끝난 것으로 보고 제거해야 함.
+		}
+
 		// 갤러리 정보 가져와서 model에 저장하기
 		model.addAttribute("gallery", galleryMapper.selectGalleryByNo(galleryNo));
 		
@@ -198,12 +218,16 @@ public class GalleryServiceImpl implements GalleryService {
 
 		// 결론. FILE_ATTACH 테이블에 INSERT할 galleryNo 정보는 gallery에 저장되어 있다.
 		
-		// 파일 첨부
-		
-		int fileAttachResult = 0;
-		
 		// 첨부된 모든 파일들
 		List<MultipartFile> files = multipartRequest.getFiles("files");  // 파라미터 files
+		
+		// 파일 첨부 결과
+		int fileAttachResult;
+		if(files.get(0).getOriginalFilename().isEmpty()) {  // 첨부가 없으면 files.size() == 1임. [MultipartFile[field="files", filename=, contentType=application/octet-stream, size=0]] 값을 가짐.
+			fileAttachResult = 1; 
+		} else {  // 첨부가 있으면 "files.size() == 첨부파일갯수"이므로 fileAttachResult = 0으로 시작함.
+			fileAttachResult = 0;
+		}
 		
 		for (MultipartFile multipartFile : files) {
 			
@@ -365,58 +389,64 @@ public class GalleryServiceImpl implements GalleryService {
 	@Transactional
 	@Override
 	public void change(MultipartHttpServletRequest multipartRequest, HttpServletResponse response) {
-			// 전달된 파라미터
-			Long galleryNo = Long.parseLong(multipartRequest.getParameter("galleryNo"));
-			String title = multipartRequest.getParameter("title");
-			String content = multipartRequest.getParameter("content");
+		
+		// 전달된 파라미터
+		Long galleryNo = Long.parseLong(multipartRequest.getParameter("galleryNo"));
+		String title = multipartRequest.getParameter("title");
+		String content = multipartRequest.getParameter("content");
+		
+		// GalleryDTO
+		GalleryDTO gallery = GalleryDTO.builder()
+				.galleryNo(galleryNo)
+				.title(title)
+				.content(content)
+				.build();
+		
+		// Gallery UPDATE 수행
+		int galleryResult = galleryMapper.updateGallery(gallery);  // UPDATE 수행
+		
+		// 첨부된 모든 파일들
+		List<MultipartFile> files = multipartRequest.getFiles("files");  // 파라미터 files
+
+		// 파일 첨부 결과
+		int fileAttachResult;
+		if(files.get(0).getOriginalFilename().isEmpty()) {  // 첨부가 없으면 files.size() == 1임. [MultipartFile[field="files", filename=, contentType=application/octet-stream, size=0]] 값을 가짐.
+			fileAttachResult = 1;  
+		} else {  // 첨부가 있으면 "files.size() == 첨부파일갯수"이므로 fileAttachResult = 0으로 시작함.
+			fileAttachResult = 0;
+		}
+		
+		for (MultipartFile multipartFile : files) {
 			
-			// GalleryDTO
-			GalleryDTO gallery = GalleryDTO.builder()
-					.galleryNo(galleryNo)
-					.title(title)
-					.content(content)
-					.build();
-			
-			// Gallery UPDATE 수행
-			int galleryResult = galleryMapper.updateGallery(gallery);  // INSERT 수행
-			
-			// 파일 첨부
-			int fileAttachResult = 0;
-			
-			// 첨부된 모든 파일들
-			List<MultipartFile> files = multipartRequest.getFiles("files");  // 파라미터 files
-			
-			for (MultipartFile multipartFile : files) {
+			// 예외 처리는 기본으로 필요함.
+			try {
 				
-				// 예외 처리는 기본으로 필요함.
-				try {
+				// 첨부가 없을 수 있으므로 점검해야 함.
+				if(multipartFile != null && multipartFile.isEmpty() == false) {  // 첨부가 있다.(둘 다 필요함)
 					
-					// 첨부가 없을 수 있으므로 점검해야 함.
-					if(multipartFile != null && multipartFile.isEmpty() == false) {  // 첨부가 있다.(둘 다 필요함)
+					// 첨부파일의 본래 이름(origin)
+					String origin = multipartFile.getOriginalFilename();
+					origin = origin.substring(origin.lastIndexOf("\\") + 1);  // IE는 본래 이름에 전체 경로가 붙어서 파일명만 빼야 함.
+					
+					// 첨부파일의 저장된 이름(saved)
+					String saved = MyFileUtils.getUuidName(origin);
+					
+					// 첨부파일의 저장 경로(디렉터리)
+					String path = MyFileUtils.getTodayPath();
+					
+					// 저장 경로(디렉터리) 없으면 만들기
+					File dir = new File(path);
+					if(dir.exists() == false) {
+						dir.mkdirs();
+					}
+					
+					// 첨부파일
+					File file = new File(dir, saved);
+					
+					// 첨부파일 확인
+					String contentType = Files.probeContentType(file.toPath());  // 이미지의 Content-Type(image/jpeg, image/png, image/gif)
+					if(contentType.startsWith("image")) {
 						
-						// 첨부파일의 본래 이름(origin)
-						String origin = multipartFile.getOriginalFilename();
-						origin = origin.substring(origin.lastIndexOf("\\") + 1);  // IE는 본래 이름에 전체 경로가 붙어서 파일명만 빼야 함.
-						
-						// 첨부파일의 저장된 이름(saved)
-						String saved = MyFileUtils.getUuidName(origin);
-						
-						// 첨부파일의 저장 경로(디렉터리)
-						String path = MyFileUtils.getTodayPath();
-						
-						// 저장 경로(디렉터리) 없으면 만들기
-						File dir = new File(path);
-						if(dir.exists() == false) {
-							dir.mkdirs();
-						}
-						
-						// 첨부파일
-						File file = new File(dir, saved);
-						
-						// 첨부파일 확인
-						String contentType = Files.probeContentType(file.toPath());  // 이미지의 Content-Type(image/jpeg, image/png, image/gif)
-						if(contentType.startsWith("image")) {
-							
 						// 첨부파일 서버에 저장(업로드)
 						multipartFile.transferTo(file);
 						
@@ -424,51 +454,51 @@ public class GalleryServiceImpl implements GalleryService {
 						Thumbnails.of(file)
 							.size(100, 100)
 							.toFile(new File(dir, "s_" + saved));
-							
+						
 						// FileAttachDTO
 						FileAttachDTO fileAttach = FileAttachDTO.builder()
 								.path(path)
 								.origin(origin)
 								.saved(saved)
-								.galleryNo(gallery.getGalleryNo())
+								.galleryNo(galleryNo)
 								.build();
-							
+						
 						// FileAttach INSERT 수행
 						fileAttachResult += galleryMapper.insertFileAttach(fileAttach);
 						
-						}
-
 					}
-					
-				} catch(Exception e) {
-					e.printStackTrace();
+
 				}
 				
-			}
-			
-			// 응답
-			try {
-				response.setContentType("text/html");
-				PrintWriter out = response.getWriter();
-				if(galleryResult == 1 && fileAttachResult == files.size()) {
-					out.println("<script>");
-					out.println("alert('갤러리가 수정되었습니다.')");
-					out.println("location.href='" + multipartRequest.getContextPath() + "/gallery/detail?galleryNo=" + galleryNo + "'");
-					out.println("</script>");
-					out.close();
-				} else {
-					out.println("<script>");
-					out.println("alert('갤러리가 수정되지 않았습니다.')");
-					out.println("history.back()");
-					out.println("</script>");
-					out.close();
-				}
-			} catch (Exception e) {
+			} catch(Exception e) {
 				e.printStackTrace();
 			}
 			
 		}
+		
+		// 응답
+		try {
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			if(galleryResult == 1 && fileAttachResult == files.size()) {
+				out.println("<script>");
+				out.println("alert('갤러리가 수정되었습니다.')");
+				out.println("location.href='" + multipartRequest.getContextPath() + "/gallery/detail?galleryNo=" + galleryNo + "'");
+				out.println("</script>");
+				out.close();
+			} else {
+				out.println("<script>");
+				out.println("alert('갤러리가 수정되지 않았습니다.')");
+				out.println("history.back()");
+				out.println("</script>");
+				out.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
+	}
+	
 	@Override
 	public void removeFileAttach(Long fileAttachNo) {
 		
@@ -506,7 +536,5 @@ public class GalleryServiceImpl implements GalleryService {
 		galleryMapper.deleteFileAttach(fileAttachNo);
 		
 	}
-	
-	
-  }
 
+}

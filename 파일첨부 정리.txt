@@ -1,0 +1,15 @@
+파일 업로드시 필요한 코드
+
+config에 CommonsMultipartResolver 넣기
+
+기본 파일 첨부 폼
+<form id="?" action="${contextPath}/folder/jspname" method="post" enctype="multipart/form-data">
+
+단일첨부인 경우는 기본 폼을 유지하되 input을 추가
+<input type="file" name="file">
+
+다중첨부인 경우는 기본 폼을 유지하되 input을 추가함
+<input type="file" name="files" id="files" multiple="multiple"> 를 추가!
+
+단일파일일 경우 type=file만 추가하면 되지만 다중 파일인 경우에는 multiple="multiple" 속성이 추가된다.
+
