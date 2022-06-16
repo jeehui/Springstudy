@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
-<aop-project name="17_JENKINS"/>
-<aop-project name="14_HIERARCHICAL_BOARD"/>
-<aop-project name="16_MEMBER"/>
-<aop-project name="15_GALLERY"/>
+<aop-project name="13_BOARD_REPLY"/>
+<aop-project name="05_AJAX"/>
+<aop-project name="07_DBCP"/>
+<aop-project name="04_MVC_REQUEST"/>
 <aop-project name="HISTORY"/>
+<aop-project name="11_MYBATIS"/>
+<aop-project name="GDJ45_TEAM_PROJECT"/>
+<aop-project name="02_MVC_STATIC"/>
+<aop-project name="03_MVC_DI"/>
+<aop-project name="08_SPRING_JDBC"/>
+<aop-project name="18_REST"/>
+<aop-project name="14_HIERARCHICAL_BOARD"/>
+<aop-project name="12_PAGE_SEARCH"/>
+<aop-project name="06_JDBC"/>
+<aop-project name="10_MYBATIS"/>
+<aop-project name="01_BEAN"/>
+<aop-project name="15_GALLERY"/>
 <aop-project name="MovieProject"/>
 <aop-project name="AppTest"/>
-<aop-project name="18_REST"/>
-<aop-project name="HelloProject"/>
 <aop-project name="BOARD"/>
+<aop-project name="QUIZ01"/>
 </aop-reference-model>

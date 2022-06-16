@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-@MapperScan(basePackages={"com.goodee.ex16.mapper"})
+@MapperScan(basePackages={"com.goodee.ex18.mapper"})
 @PropertySource(value={"classpath:mybatis/properties/db.properties"})
 @EnableTransactionManagement
 @Configuration

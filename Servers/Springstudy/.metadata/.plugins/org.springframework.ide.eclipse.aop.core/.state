@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="17_JENKINS"/>
+<aop-project name="14_HIERARCHICAL_BOARD"/>
+<aop-project name="16_MEMBER"/>
+<aop-project name="15_GALLERY"/>
+<aop-project name="HISTORY"/>
+<aop-project name="MovieProject"/>
+<aop-project name="AppTest"/>
+<aop-project name="18_REST"/>
+<aop-project name="HelloProject"/>
+<aop-project name="BOARD"/>
+</aop-reference-model>

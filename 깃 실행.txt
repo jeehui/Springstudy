@@ -299,3 +299,14 @@ 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
 
 캡처
 윈도우키 + shift + s
+
+--팀플 git 협업
+main 하실 분이 팀원 깃아이디를 받아 초대한다. (그 전에 repository를 생성해서 project를 만듦)
+팀원들은 초대받은 프로젝트 상단 오른편에 fork를 눌러 생성한다.
+받은 repository로 새폴더를 만들어 git작업을 한다. clone말고 pull로 받는다.
+
+pull 다 되면 import로 폴더를 추가한다.
+
+main측에서 갱신하라고 요청하면 git project 주소에 들어가서 Fetch upstream을 누르고 Fetch and merge를 누른다.
+git pull origin main 을 해서 데이터를 받는다.
+다 받고 이클립스로 돌아가 maven update를 하여 데이터가 들어왔는지 확인한다.

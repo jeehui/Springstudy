@@ -1,0 +1,34 @@
+$.ajax({
+	url: ${contextPath}/member/detail,
+	type: 'get', 
+	data: 'no=1',
+	dataType : 'json',
+	success: function(member){  //(member)이름은 마음대로 변수이름 같은거임
+				// member : {"id": "admin", "pw": "123456"} 형식으로 만들어짐 //jackson이 알아서만듦
+    }
+ })
+
+$.ajax({
+	url: ${contextPath}/member/detail,
+	type: 'post', // JSON.stringify 인 경우는'get'을 쓸 수 없어서 'POST'형식으로 바뀌어야함
+	data: JSON.stringify({'no=1'}),
+	contentType: 'application/json'
+	dataType : 'json',
+	success: function(member){  //(member)이름은 마음대로 변수이름 같은거임
+				// member : {"id": "admin", "pw": "123456"} 형식으로 만들어짐 //jackson이 알아서만듦
+    }
+ })
+MemberController
+ @Autowired(root-context.xml, MemberConfig.java)
+ private memberService memberService;
+
+ @GetMapping(value="/member/detail")
+ public MemberDTO detail(@RequestParam(value="no") Long no){ // 'POST'를 써서 @request를 못씀
+  MemberDTO member = memberService.detial(no);
+	return member; // ajax요청인 경우 
+ }
+
+ @PostMapping(value="/member/detail", produces="application/json")
+ public MemberDTO detail(@RequestBody Member DTO member){
+  MemberDTO member = memberService.detail(member.getNo());
+	return member; //ajax 요청인 경우 요청한 곳으로 값만 반환한다.

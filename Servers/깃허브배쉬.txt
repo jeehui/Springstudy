@@ -1,0 +1,74 @@
+git
+
+1. git-scm.com 에서 다운로드 받아 설치한다.
+   Git-2.36.0-64-bit.exe
+2. 설치 과정
+   git init 명령을 내렸을 때 어떤 브랜치를 기본 브랜치 이름으로 사용할 것인가? main 브랜치
+
+3. 설치 완료 후 git bash 실행(linux command)
+4. linux command(리눅스는 다 소문자)
+   1) pwd : 현재 디렉터리 경로 확인
+   2) ls : 현재 디렉터리에 포함된 파일 및 디렉터리 확인
+   3) mkdir : 디렉터리 만들기
+   4) cd : 디렉터리 이동
+	(1) ~ : 루트 디렉터리
+	(2)  . : 현재 디렉터리
+	(3) .. : 상위 디렉터리
+	(4) / : 디렉터리 구분자
+   5) rmdir : 디렉터리 삭제
+   6) touch : 파일 만들기
+	(1) echo : 데이터 보내기
+	(2) cat   : 파일 열기
+   7) rm : 파일 삭제
+
+-----------------------------
+linux command 연습
+-----------------------------
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~ ##(주석임) '~' 는 루트 디렉터리를 의미한다.
+$ pwd
+/c/Users/GDJ45
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~
+$ ls
+'3D Objects'/
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+ Desktop/
+ Documents/
+ Downloads/
+...
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~
+$ mkdir sample ## 현재 디렉터리에 sample 디렉터리 만들기
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~
+$ cd sample ## sample 디렉터리 이동하기
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~/sample 
+$
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~/sample
+$ touch sample.txt ## sample.txt 파일을 새로 만들기 
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~/sample
+$ echo 'hello world' >> sample.txt ## sample.txt 파일로 'hello world' 텍스트 기록하기
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~/sample
+$ cat sample.txt
+hello world ## sample txt 파일 열기(내용 확인)
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~/sample
+$ rm sample.txt ## sample.txt 파일 삭제
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~/sample
+$ cd .. ## 상위 디렉터리로 이동
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~
+$ rmdir sample ## sample 디렉터리 삭제
+
+GDJ45@DESKTOP-BDPH6Q5 MINGW64 ~
+$
+
+

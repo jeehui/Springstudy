@@ -1,0 +1,41 @@
+--STS(Spring Tool Suite)
+--이클립스 기반의 Spring Tool
+
+--Tomcat 대신 pivotal-tc-server서버가 설치되어 있다.
+--제거 후 Tomcat 설치가 필요하다.
+--Window - Preferences - Server - Runtime Environments
+
+--Window - Preferences
+--Run/Debug - Console - Limit console output 해제
+--테마
+--글꼴
+--인코딩 UTF-8
+--systax coloring(class pink, method orange, interface gray)
+
+--Window - Web Browser - Chrome
+
+--스프링에선 context path가 패키지 이름에서 나옴
+그리고 3수준 이상으로 써야함 ex) com.goodee.ex01 
+->context path : ex01 소문자로!
+context path니까 중복이 없어야하믄로 unique해야함
+com.goodee=group id
+ex01=artifact id
+
+파일보면
+src/main/java - java
+src/main/resources - xml(content, mybatis..)
+src/test/java - TestCase(JUnit)
+webapp - web root
+resources - static file(image, css, js...) 
+views - jsp
+pom.xml - library(jar)
+
+
+--MavenRepositroy는 jar 저장소
+jar을 모아둔 사이트
+
+--alpha 버전은 개발중이므로 쓰면 안됨.
+--beta 버전은 배포중이지만 테스트 버전임.
+
+
+

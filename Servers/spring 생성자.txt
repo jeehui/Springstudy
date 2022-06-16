@@ -1,0 +1,18 @@
+Calculator calculator1 = new Calculator();
+EngineerCalculator eCalculator1 = new EngineerCalculator();
+eCalculator1.setA(7);
+eCalculator1.setB(2);
+eCalculator1.setCalculator(calculator1);
+
+----
+<bean class="com.goodee.ex01.xml01.EngineerCalculator" id="eCalculator1">
+<property name="a">	<!-- private int a; setter를 이용해서 동작해요-->
+	<value>7</value>
+</property>
+<property name="b">
+	<value>2</value> 	<!-- private int b; -->
+</property>
+<property name = "calculator">  <!-- private Calculator calculator; setter를 이용해서 동작-->
+	<ref bean="calculator1"/>
+</property>
+</bean>
